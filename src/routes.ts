@@ -1,9 +1,8 @@
 import { Router } from "express";
+import NameController from "./controllers/getName";
 
-const routes = Router();
 
-routes.get('/', (req, res) => {
-    res.send('OK');
-});
+export const routes = Router();
 
-export default routes
+routes.get('/nome', new NameController().createNome)
+
