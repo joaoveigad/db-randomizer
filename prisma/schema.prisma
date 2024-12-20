@@ -8,7 +8,7 @@ datasource db {
 }
 
 model decomposedNames {
-  especime Int    @id @default(autoincrement())
+  especime Int    @id @unique @default(autoincrement())
   nome     String @unique
   prefixo  String
   fill     String
