@@ -11,16 +11,11 @@ export default class NameController {
                     (SELECT fill FROM "decomposedNames" ORDER BY RANDOM() LIMIT 1) AS mid,
                     (SELECT sufixo FROM "decomposedNames" ORDER BY RANDOM() LIMIT 1) AS su
             `;
-
             const nomeConcatenado: string = nomeDriver[0].pre + nomeDriver[0].mid + nomeDriver[0].su;
-            console.log(nomeConcatenado);
             res.status(200).json({ nome: nomeConcatenado });
+            
         } catch (error) {
-            if (error instanceof Error) {
-                res.status(500).json({ mensagem: error.message || 'Erro interno do servidor' });
-            } else {
-                res.status(500).json({ mensagem: 'Erro desconhecido' });
-            }
+            res.status(400).json({message: 'Erro desconhecido!'})
         }
     }
 }
