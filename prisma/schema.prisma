@@ -14,3 +14,9 @@ model decomposedNames {
   fill     String
   sufixo   String
 }
+
+model usuariosAutorizados {
+  id    Int    @id @unique @default(autoincrement())
+  email String @unique
+  senha String
+}

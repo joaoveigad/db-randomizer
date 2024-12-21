@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../prisma"
+import prisma from "../../prisma"
 
 export default class ManagerRegistros {
     async create(req: Request, res: Response): Promise<any> {
