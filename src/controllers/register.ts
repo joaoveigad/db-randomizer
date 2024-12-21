@@ -1,4 +1,4 @@
-import { Request, Response, response } from "express";
+import { Request, Response } from "express";
 import prisma from "../prisma"
 
 export default class ManagerRegistros {
