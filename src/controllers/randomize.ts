@@ -3,7 +3,7 @@ import prisma from "../prisma";
 
 
 export default class NameController {
-    async createNome(req: Request, res: Response): Promise<void> {
+    async randomizeName(req: Request, res: Response): Promise<void> {
         try {
             const nomeDriver = await prisma.$queryRaw<any[]>`
                 SELECT 

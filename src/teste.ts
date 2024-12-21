@@ -1,3 +1,3 @@
-import { nomeRandom } from "./controllers/getName";
+import { nomeRandom } from "./controllers/randomize";
 
 console.log(nomeRandom)
