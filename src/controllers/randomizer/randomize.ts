@@ -15,7 +15,8 @@ export default class NameController {
             return res.status(200).json({ nome: nomeConcatenado });
             
         } catch (error) {
-           return res.status(400).json({message: 'Erro desconhecido!'})
+            const erro = error as Error;
+            return res.status(400).json({ message: erro.message });
         }
     }
 }
