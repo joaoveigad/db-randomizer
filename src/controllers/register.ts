@@ -20,7 +20,7 @@ export default class ManagerRegistros {
                 data: { nome, prefixo, fill, sufixo }
             });
 
-            return res.status(201).json(novoNome);
+            return res.status(201).json({message: 'Novo nome cadastrado com sucesso.', novoNome});
         } catch (error) {
             const erro = error as Error;
             return res.status(400).json({ message: erro.message });
