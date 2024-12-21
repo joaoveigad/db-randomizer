@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../../prisma";
-import bcrypt, { hash } from 'bcrypt'
+import bcrypt from 'bcrypt'
 
 export default class userController {
 
