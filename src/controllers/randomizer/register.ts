@@ -1,16 +1,14 @@
 import { Request, Response } from "express";
 import prisma from "../../prisma"
-import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 
 
 export default class ManagerRegistros {
     async create(req: Request, res: Response): Promise<any> {
-        const { nome, prefixo, fill, sufixo } = req.body;
+        const { nome, prefixo, fill, sufixo } = req.body
 
 
         try {
-            
             const nomeExiste = await prisma.decomposedNames.findUnique({
                 where: { nome }
             });
