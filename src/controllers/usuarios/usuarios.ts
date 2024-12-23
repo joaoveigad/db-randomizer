@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import prisma from "../../prisma";
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import 'dotenv/config'
 
 export default class userController {
 
@@ -54,20 +56,21 @@ export default class userController {
             if (!senhaVerificada) {
                 return res.status(400).json({ message: 'Credenciais incorretas.' });
             }
-            return res.status(200).json({message: 'Login bem-sucedido.'})
+
+
+            const token = jwt.sign({id: usuarioValido.email }, process.env.SECRET_JWT as string, {
+                expiresIn: "1h"
+            })
+            console.log(process.env.SECRET_JWT)
+            console.log(token)
+
+            return res.status(200).json({message: 'Login bem-sucedido.', token})
 
 
         } catch (error) {
             const erro = error as Error;
             return res.status(400).json({ message: erro.message });
         }
-
-
-
-
-
-
-
     }
 
 
