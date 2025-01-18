@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 import 'dotenv/config'
 
 export default class userController {
-
     async createUser(req: Request, res: Response): Promise<any>{
         const {email, senha} = req.body
         const senhaCripto = await bcrypt.hash(senha, 10)
@@ -33,8 +32,6 @@ export default class userController {
         }
 
     }
-
-
     async login(req:Request, res: Response): Promise<any>{
         const {email, senha} = req.body;
         
